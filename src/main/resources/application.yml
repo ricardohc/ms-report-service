@@ -9,7 +9,7 @@ spring:
 
   data:
     mongodb:
-      uri: ${MONGODB_URI:mongodb://localhost:27017/banking_report}
+      uri: ${MONGODB_URI:mongodb://localhost:27017/banking_yanki}
       auto-index-creation: true
 
   kafka:
