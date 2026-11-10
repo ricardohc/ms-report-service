@@ -12,10 +12,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-/**
- * Projection of movements fed exclusively by domain events (Parte III).
- * Deduplicated by eventId.
- */
 @Data
 @Builder
 @NoArgsConstructor
@@ -27,7 +23,6 @@ public class MovementProjectionDocument {
     @Id
     private String id;
 
-    /** Event envelope id used for deduplication. */
     private String eventId;
 
     private String topic;
@@ -38,7 +33,6 @@ public class MovementProjectionDocument {
 
     private UUID productId;
 
-    /** CREDIT or DEBIT. Required for the card movements report. */
     private String cardType;
 
     private String movementType;

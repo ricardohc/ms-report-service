@@ -11,9 +11,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-/**
- * Report aggregate persisted in the banking_report database.
- */
 @Data
 @Builder
 @NoArgsConstructor
@@ -24,7 +21,6 @@ public class ReportDocument {
     @Id
     private UUID reportId;
 
-    /** X-Transaction-ID used for idempotency (unique). */
     @Indexed(unique = true)
     private UUID transactionId;
 
@@ -42,7 +38,6 @@ public class ReportDocument {
 
     private String format;
 
-    /** PENDING, PROCESSING, COMPLETED, FAILED. */
     private String status;
 
     private LocalDateTime generatedAt;

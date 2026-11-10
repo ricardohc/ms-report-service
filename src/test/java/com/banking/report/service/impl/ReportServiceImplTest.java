@@ -22,7 +22,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
-/** Unit tests for the report business rules. */
 @ExtendWith(MockitoExtension.class)
 class ReportServiceImplTest {
 

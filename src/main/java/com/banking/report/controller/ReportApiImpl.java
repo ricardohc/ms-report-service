@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
 
-/** REST adapter implementing the generated ReportApi contract. */
 @RestController
 @RequiredArgsConstructor
 public class ReportApiImpl implements ReportApi {

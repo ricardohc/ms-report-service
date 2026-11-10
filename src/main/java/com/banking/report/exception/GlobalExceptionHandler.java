@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.server.ServerWebExchange;
 
-/** Global error handler mapping domain exceptions to contract HTTP codes. */
 @RestControllerAdvice
 @Slf4j
 public class GlobalExceptionHandler {
 
-    /** 422 - invalid date range. */
     @ExceptionHandler(InvalidDateRangeException.class)
     public ResponseEntity<ErrorResponse> handleInvalidDateRange(
             final InvalidDateRangeException ex, final ServerWebExchange exchange) {
@@ -23,7 +21,6 @@ public class GlobalExceptionHandler {
                 ex.getMessage(), exchange);
     }
 
-    /** 404 - report not found. */
     @ExceptionHandler(ReportNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleNotFound(
             final ReportNotFoundException ex, final ServerWebExchange exchange) {
@@ -31,7 +28,6 @@ public class GlobalExceptionHandler {
                 ex.getMessage(), exchange);
     }
 
-    /** 500 - unexpected errors. */
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ErrorResponse> handleGeneric(
             final Exception ex, final ServerWebExchange exchange) {

@@ -10,21 +10,15 @@ import org.springframework.kafka.core.reactive.ReactiveKafkaProducerTemplate;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
-/**
- * Publishes report lifecycle events to banking.report.events.v1.
- * Payloads are provisional until formalized in the Kafka catalog.
- */
 @Component
 @RequiredArgsConstructor
 @Slf4j
 public class ReportEventPublisher {
 
-    /** Topic defined by the skill contract. */
     public static final String TOPIC = "banking.report.events.v1";
 
     private final ReactiveKafkaProducerTemplate<String, Object> kafkaTemplate;
 
-    /** Publishes ReportRequested for the given report. Never blocks the caller. */
     public void publishReportRequested(final ReportDocument report) {
         final Map<String, Object> event = new HashMap<>();
         event.put("eventId", UUID.randomUUID().toString());

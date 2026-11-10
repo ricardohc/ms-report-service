@@ -18,16 +18,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
-/**
- * Async report generation. Persisted status starts at PENDING; the simulated
- * asynchronous worker transitions it to COMPLETED (Parte II behavior).
- */
 @Service
 @RequiredArgsConstructor
 @Slf4j
 public class ReportServiceImpl implements ReportService {
 
-    /** Maximum allowed report range in days. */
     static final long MAX_RANGE_DAYS = 90;
 
     private final ReportRepository reportRepository;
